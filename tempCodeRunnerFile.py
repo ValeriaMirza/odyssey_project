@@ -1,0 +1,2 @@
+self.assertEqual(extract_movie_type('Decizia de a plecaNot Rated (USA)2\xa0h 18\xa0min.De comedie'), 'Not Rated (USA)')
+        # self.assertEqual(extract_movie_type('The Banshees of InisherinR1\xa0h 49\xa0min.De groază'), 'R')

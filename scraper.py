@@ -10,4 +10,24 @@ def extract_movie_data_for_year(year: int) -> list:
     Returns:
         list: the most popular movies in the given year
     """
-    pass  # Add implementation here you can use this kind of url to get the site info f'https://www.google.com/search?q=popular+movies+in+2023'
+    url = f'https://www.google.com/search?q=popular+movies+in+{year}'
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    }
+    response = requests.get(url, headers=headers)
+    
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        movie_titles = soup.find_all(class_='UnFsfe cyKJce ZvGeOb')
+        movies = [title.get_text() for title in movie_titles]
+        return movies
+    else:
+        print("Failed to fetch data")
+        return []
+
+# # Example usage:
+# year = 1999
+# popular_movies = extract_movie_data_for_year(year)
+# print(f"Popular movies in {year}:")
+# for movie in popular_movies:
+#     print(f" {movie}")
