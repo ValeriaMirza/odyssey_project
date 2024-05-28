@@ -150,8 +150,6 @@ def delete_movie(year: int, name: str) -> Dict:
     save_movies(movies)
     return deleted_movie
 
-# if __name__ == "__main__":
-#     import uvicorn
-#     uvicorn.run(app, host="0.0.0.0", port=8000) # You can access the API docs at http://localhost:8000/docs
-
-print(fetch_movie_data_for_year(2021))
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000) # You can access the API docs at http://localhost:8000/docs

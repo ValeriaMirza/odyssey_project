@@ -24,10 +24,3 @@ def extract_movie_data_for_year(year: int) -> list:
     else:
         print("Failed to fetch data")
         return []
-
-# # Example usage:
-# year = 1999
-# popular_movies = extract_movie_data_for_year(year)
-# print(f"Popular movies in {year}:")
-# for movie in popular_movies:
-#     print(f" {movie}")
